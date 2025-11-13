@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Full Width Pics - Start Bootstrap Template</title>
+
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'store/assets/favicon.ico' %}" />
+
+        <!-- Core theme CSS-->
+        <link href="{% static 'store/css/styles.css' %}" rel="stylesheet" />
+        <style>
+            .product-img {
+                width: 100%;
+                height: 170px;
+                object-fit: cover;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HEADER -->
+        <header class="py-5 bg-image-full"
+                style="background-image: url('{% static 'store/images/test_background.jpg' %}')">
+            <div class="text-center my-5">
+                <img class="img-fluid rounded-circle mb-4"
+                     src="{% static 'store/images/icon_store.jpg' %}" alt="Minha imagem" />
+                <h1 class="text-dark fs-3 fw-bolder">Ma chère boutique</h1>
+                <p class="text-dark mb-0">Simple, beau, essentiel</p>
+            </div>
+        </header>
+
+        <!-- PRODUCT LIST SECTION -->
+        <section class="py-5">
+            <div class="container my-5">
+
+                <h2 class="mb-4 text-center">List of products</h2>
+
+                {% if products %}
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                        {% for product in products %}
+                            <div class="col">
+                                <div class="card h-100 shadow-sm">
+
+                                    <!-- Product Image -->
+                                    {% if product.image %}
+                                        <img src="{{ product.image.url }}"
+                                            class="product-img"
+                                            alt="{{ product.name }}">
+                                    {% else %}
+                                        <img src="{% static 'store/images/product_placeholder.jpg' %}"
+                                            class="product-img"
+                                            alt="{{ product.name }}">
+                                    {% endif %}
+
+                                    <!-- Product Body -->
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ product.name }}</h5>
+                                        <p class="card-text mb-1">
+                                            Quantity available: 
+                                            <strong>{{ product.quantity_available }}</strong>
+                                        </p>
+                                    </div>
+
+                                    <!-- Button to detail page -->
+                                    <div class="card-footer bg-transparent border-0 text-end">
+                                        <a href="{% url 'store:product_detail' product_id=product.id %}"
+                                           class="btn btn-primary">
+                                            View details
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                {% else %}
+                    <p>No products registered.</p>
+                {% endif %}
+
+            </div>
+        </section>
+
+        <!-- BACKGROUND SECTION -->
+        <div class="py-5 bg-image-full"
+             style="background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800')">
+            <div style="height: 20rem"></div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="py-5 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">
+                    Copyright © Your Website 2023
+                </p>
+            </div>
+        </footer>
+
+        <!-- JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'store/js/scripts.js' %}"></script>
+
+    </body>
+</html>

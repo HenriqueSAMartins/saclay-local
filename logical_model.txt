@@ -1,0 +1,6 @@
+Product(_id_product, name, quantity_availible)
+Producer(_id_producer, name)
+Consumer(_id_consumer, name)
+
+Production(_id_product, _id_producer, quantity_produced)
+Consumption(_id_product, _id_consumer, quantity_consumed)
