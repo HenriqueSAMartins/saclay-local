@@ -18,7 +18,7 @@ This project is part of the Coding Weeks 2025 initiative. It is a web applicatio
    ```
 2. Navigate to the clone directory:
    ```
-   cd cw_2025
+   cd saclay-local
    ```
 3. Create and activate a virtual environment:
    ```
