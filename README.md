@@ -1,12 +1,6 @@
-# cw_2025
+# Coding Weeks Project - Site Ma chère boutique
 
-## Team Members
-- Henrique SOUZA DE ABREU MARTINS
-- Ahmed Selim JENDOUBI
-- Emna BANNOUR
-- Rayan NEFFATI
-- Heitor MENDES NETTO
-- Mohamed Amine MASMOUDI
+![texto alternativo](images/site_exemple.jpg)
 
 ## Project Description
 This project is part of the Coding Weeks 2025 initiative. It is a web application designed to manage and showcase a store's inventory and operations. The application is built using Django, a high-level Python web framework.
